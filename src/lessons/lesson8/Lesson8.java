@@ -85,9 +85,9 @@ public class Lesson8 {
 //        Utils.ln();
 //        Utils.line();
 
-        line();
-        ln();
-        line();
+        printLine();
+        printNewLine();
+        printLine();
 
 
 

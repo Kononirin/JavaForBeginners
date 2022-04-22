@@ -5,13 +5,28 @@ public class Utils {
     //сюда складываем переменные и методы, которые не имеют отношения
     // к бизнес-логике
 
-    public static void line() {
-        System.out.println("----------");
+    //* со звездочкой метод - с return, без звездочки - с void
+
+    //метод для печати разделительной строки printLine
+    //метод для печати пустой строки printNewLine
+    //метод для печати номера задачи task
+    //метод проверки массива не пустой ли он checkForEmptyArray *
+    //метод для печати массива printArray
+    //метод для вычисления среднего значения элементов массива averageArray
+    //метод вычисления минимального значения в массиве minValue
+    //метод вычисления максимального значения в массиве maxValue
+    //метод определения длины массива lengthArray *
+    //метод проверки, что числа в массиве положительные checkPositiveNumbers*
+
+    public static void printLine() {
+        System.out.println("-------------");
     }
 
-    public static void ln() {
+    public static void printNewLine() {
         System.out.println();
     }
+
+    //метод для печати номера задачи
 
     public static void task(int number) {
 
@@ -19,11 +34,258 @@ public class Utils {
                 + number + "\n===============\n");
     }
 
+    //метод проверки массива не пустой ли он
+
+    public static boolean checkForEmptyArray(int[] array) {
+
+        if (array.length != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean checkForEmptyArray(String[] array) {
+
+        if (array.length != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean checkForEmptyArray(double[] array) {
+
+        if (array.length != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean checkForEmptyArray(boolean[] array) {
+
+        if (array.length != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //метод для печати массива
+
+    public static void printArray(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void printArray(double[] array) {
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void printArray(String[] array) {
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void printArray(boolean[] array) {
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    //метод для вычисления среднего значения элементов массива
+
+    public static void averageArray(int[] array) {
+
+        double sumOfElements = 0;
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                sumOfElements = sumOfElements + array[i];
+            }
+            System.out.println(sumOfElements / array.length);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void averageArray(double[] array) {
+
+        double sumOfElements = 0;
+
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                sumOfElements = sumOfElements + array[i];
+            }
+            System.out.println(sumOfElements / array.length);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    //метод вычисления минимального значения в массиве
+
+    public static void minValue(int[] array) {
+
+        int min = Integer.MAX_VALUE;
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                if (min > array[i]) {
+                    min = array[i];
+                }
+            }
+            System.out.println(min);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void minValue(double[] array) {
+
+        double min = Integer.MAX_VALUE;
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                if (min > array[i]) {
+                    min = array[i];
+                }
+            }
+            System.out.println(min);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    //метод вычисления максимального значения в массиве
+
+    public static void maxValue(int[] array) {
+
+        int max = Integer.MIN_VALUE;
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                if (max < array[i]) {
+                    max = array[i];
+                }
+            }
+            System.out.println(max);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    public static void maxValue(double[] array) {
+
+        double max = Integer.MIN_VALUE;
+        if (checkForEmptyArray(array)) {
+            for (int i = 0; i < array.length; i++) {
+                if (max < array[i]) {
+                    max = array[i];
+                }
+            }
+            System.out.println(max);
+        } else {
+            System.out.println("Array is empty");
+        }
+    }
+
+    //метод определения длины массива
+
+    public static int lengthArray(int[] array) {
+
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    public static int lengthArray(double[] array) {
+
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    public static int lengthArray(boolean[] array) {
+
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    public static int lengthArray(String[] array) {
+
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    //метод на проверку, что числа в массиве положительные checkPositiveNumbers
+
+    public static boolean checkPositiveNumbers(int[] array) {
+
+        boolean isNumberPositive = true;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                return false;
+            }
+        }
+        return isNumberPositive;
+    }
+
+    public static boolean checkPositiveNumbers(double[] array) {
+
+        boolean isNumberPositive = true;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0.0) {
+                return false;
+            }
+        }
+        return isNumberPositive;
+    }
 
 
 
 
 
-
-
-}
+    }
