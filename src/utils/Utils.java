@@ -22,7 +22,7 @@ public class Utils {
         System.out.println("-------------");
     }
 
-    public static void printNewLine() {
+    public static void printEmptyLine() {
         System.out.println();
     }
 
@@ -76,80 +76,56 @@ public class Utils {
 
     public static void printArray(int[] array) {
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
     public static void printArray(double[] array) {
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
     public static void printArray(String[] array) {
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
     public static void printArray(boolean[] array) {
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 
     //метод для вычисления среднего значения элементов массива
 
-    public static void averageArray(int[] array) {
+    public static double averageArray(int[] array) {
 
         double sumOfElements = 0;
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                sumOfElements = sumOfElements + array[i];
-            }
-            System.out.println(sumOfElements / array.length);
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            sumOfElements = sumOfElements + array[i];
         }
+        return sumOfElements / array.length;
     }
 
-    public static void averageArray(double[] array) {
+    public static double averageArray(double[] array) {
 
         double sumOfElements = 0;
 
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                sumOfElements = sumOfElements + array[i];
-            }
-            System.out.println(sumOfElements / array.length);
-        } else {
-            System.out.println("Array is empty");
+        for (int i = 0; i < array.length; i++) {
+            sumOfElements = sumOfElements + array[i];
         }
+        return sumOfElements / array.length;
     }
 
     //метод вычисления минимального значения в массиве
@@ -285,7 +261,4 @@ public class Utils {
     }
 
 
-
-
-
-    }
+}

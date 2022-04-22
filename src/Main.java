@@ -19,6 +19,12 @@ public class Main {
         System.out.println(checkPositiveNumbers(arrayMainDoubPositive));
         System.out.println(checkPositiveNumbers(arrayMainDoubNegative));
 
+        printLine();
+
+        System.out.println(averageArray(arrayMainIntPositive));
+        System.out.println(averageArray(arrayMainDoubPositive));
+
+
 
     }
 }

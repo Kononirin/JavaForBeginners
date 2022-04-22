@@ -86,7 +86,7 @@ public class Lesson8 {
 //        Utils.line();
 
         printLine();
-        printNewLine();
+        printEmptyLine();
         printLine();
 
 
