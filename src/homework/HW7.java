@@ -4,139 +4,38 @@ import static utils.Utils.*;
 
 public class HW7 {
 
-//    public static void task(int number) {
+//    //метод для вычисления среднего значения элементов массива
 //
-//        System.out.println("\n" + "\n===============\n" + " HW7 - Task "
-//                + number + "\n===============\n");
+//    public static void averageArray (int [] array) {
+//
+//        double sumOfElements = 0;
+//
+//        if (checkForEmptyArray(array)) {
+//            for (int i = 0; i < array.length; i++) {
+//                sumOfElements = sumOfElements + array[i];
+//            }
+//            System.out.println(sumOfElements/array.length);
+//        } else {
+//            System.out.println("Array is empty");
+//        }
 //    }
-
-    // метод проверки массива не пустой ли он
-
-    public static boolean checkForEmptyArray(int[] array) {
-
-        if (array.length != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean checkForEmptyArray(String[] array) {
-
-        if (array.length != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean checkForEmptyArray(double[] array) {
-
-        if (array.length != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean checkForEmptyArray(boolean[] array) {
-
-        if (array.length != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    //метод для печати массива
-
-    public static void printArray(int[] array) {
-
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
-
-    public static void printArray(double[] array) {
-
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
-
-    public static void printArray(String[] array) {
-
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
-
-    public static void printArray(boolean[] array) {
-
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
-
-    //метод для печати линии-разделителя строк
-
-    public static void printLine() {
-
-        System.out.println("---------------");
-    }
-
-    //метод для вычисления среднего значения элементов массива
-
-    public static void averageArray (int [] array) {
-
-        double sumOfElements = 0;
-
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                sumOfElements = sumOfElements + array[i];
-            }
-            System.out.println(sumOfElements/array.length);
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
-
-    //метод вычисления минимального значения в массиве
-
-    public static void minValue(int[] array) {
-
-        int min = Integer.MAX_VALUE;
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                if (min > array[i]) {
-                    min = array[i];
-                }
-            }
-            System.out.println(min);
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
+//
+//    //метод вычисления минимального значения в массиве
+//
+//    public static void minValue(int[] array) {
+//
+//        int min = Integer.MAX_VALUE;
+//        if (checkForEmptyArray(array)) {
+//            for (int i = 0; i < array.length; i++) {
+//                if (min > array[i]) {
+//                    min = array[i];
+//                }
+//            }
+//            System.out.println(min);
+//        } else {
+//            System.out.println("Array is empty");
+//        }
+//    }
 
     //метод вычисления минимального значения в массиве с проверкой
     //чисел в заданном промежутке
@@ -199,22 +98,22 @@ public class HW7 {
 
     }
 
-    //метод вычисления максимального значения в массиве
-
-    public static void maxValue(int[] array) {
-
-        int max = Integer.MIN_VALUE;
-        if (checkForEmptyArray(array)) {
-            for (int i = 0; i < array.length; i++) {
-                if (max < array[i]) {
-                    max = array[i];
-                }
-            }
-            System.out.println(max);
-        } else {
-            System.out.println("Array is empty");
-        }
-    }
+//    //метод вычисления максимального значения в массиве
+//
+//    public static void maxValue(int[] array) {
+//
+//        int max = Integer.MIN_VALUE;
+//        if (checkForEmptyArray(array)) {
+//            for (int i = 0; i < array.length; i++) {
+//                if (max < array[i]) {
+//                    max = array[i];
+//                }
+//            }
+//            System.out.println(max);
+//        } else {
+//            System.out.println("Array is empty");
+//        }
+//    }
 
     //метод вычисления максимального значения в массиве с проверкой
     //чисел в заданном промежутке
@@ -239,51 +138,8 @@ public class HW7 {
         }
     }
 
-    //метод определения длины массива
-
-    public static int lengthArray(int[] array) {
-
-        int count = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            count++;
-        }
-        return count;
-    }
-
-    public static int lengthArray(double[] array) {
-
-        int count = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            count++;
-        }
-        return count;
-    }
-
-    public static int lengthArray(boolean[] array) {
-
-        int count = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            count++;
-        }
-        return count;
-    }
-
-    public static int lengthArray(String[] array) {
-
-        int count = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            count++;
-        }
-        return count;
-    }
-
-
     /**
-     * Написать метод, который принимает на вход массив int,
+     * 18. Написать метод, который принимает на вход массив int,
      * и возвращает среднее значение. Проверить работу метода тестом,
      * если параметр - массив catsAges
      */
@@ -340,6 +196,33 @@ public class HW7 {
         average(array);
     }
 
+    public static void numMinMaxAverage (int[] array) {
+
+        int min = minValue(array);
+
+        int max = maxValue(array);
+
+        double average = averageArray(array);
+
+        System.out.println("min = " + min + ", max = " + max
+                + ", average = " + average);
+    }
+
+    //метод проверки валидности возраста кота
+
+    public static boolean checkCatsAge (int[] array) {
+
+        boolean isCatReal = true;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0 || array[i] > 38) {
+                return false;
+            }
+        }
+        return isCatReal;
+    }
+
+
     public static void main(String[] args) {
 
         task(0);
@@ -350,7 +233,7 @@ public class HW7 {
 
         int[] emptyArray = new int[0];
 
-        //массив с отрицательным возрастом котов
+        //массив с неправильными цветами котов
 
         boolean[] isCatRed1 = new boolean[8];
 
@@ -363,6 +246,8 @@ public class HW7 {
         isCatRed1[6] = true;
         isCatRed1[7] = false;
 
+        //массив с неправильными именами
+
         String[] catsNames3 = new String[8];
 
         catsNames3[0] = "Васька";
@@ -374,6 +259,8 @@ public class HW7 {
         catsNames3[6] = "Снежок";
         catsNames3[7] = "Малыш";
 
+        //массив с отрицательным возрастом котов
+
         int[] catsAges2 = new int[8];
 
         catsAges2[0] = 5;
@@ -384,34 +271,6 @@ public class HW7 {
         catsAges2[5] = 40;
         catsAges2[6] = 10;
         catsAges2[7] = 1;
-
-        if (checkForEmptyArray(emptyArray)) {
-            averageArray(emptyArray);
-        } else {
-            System.out.println("Array is empty");
-        }
-
-        printLine();
-
-        printArray(emptyArray);
-
-        printLine();
-
-        averageArray(emptyArray);
-
-        printLine();
-
-        System.out.println(lengthArray(catsAges2));
-
-        printLine();
-
-        System.out.println(lengthArray(catsNames3));
-
-        printLine();
-
-        System.out.println(lengthArray(isCatRed1));
-
-        printLine();
 
         task(1);
 
@@ -681,7 +540,7 @@ public class HW7 {
 
         double sum = 0;
 
-        if (catsAges.length != 0) {
+        if (checkForEmptyArray(catsAges)) {
             for (int i = 0; i < catsAges.length; i++) {
                 if ((catsAges[i] > 0) && (catsAges[i] < 38)) {
                     // проверка на валидный возраст
@@ -696,7 +555,7 @@ public class HW7 {
 
         printLine();
 
-        averageArray(catsAges);
+        System.out.println(averageArray(catsAges));
 
         task(13);
 
@@ -704,35 +563,45 @@ public class HW7 {
          *  Распечатать возраст самого молодого кота
          */
 
-        if (catsAges.length != 0) {
-            int min = catsAges[0];
-            for (int i = 0; i < catsAges.length; i++) {
-                if ((catsAges[i] > 0) && (catsAges[i] < 38)) {
-                    if (catsAges[i] < min) {
-                        min = catsAges[i];
-                    }
-                }
+        if (checkForEmptyArray(catsAges)) {
+            if (checkCatsAge(catsAges)) {
+                System.out.println("Age of the youngest cat is "
+                        + minValue(catsAges));
+            } else {
+                System.out.println("Invalid data");
             }
-            System.out.println("Возраст самого молодого кота " + min);
+        } else {
+            System.out.println("Array is empty");
         }
 
-        printLine();
+//      эти методы неправильные, т.к. при передаче массива с отрицательным
+//      возрастом котов, ответ выводит тот же, что и при положительном варинте
 
-        minValue(catsAges);
+//        if (catsAges.length != 0) {
+//            min = catsAges[0];
+//            for (int i = 0; i < catsAges.length; i++) {
+//                if ((catsAges[i] > 0) && (catsAges[i] < 38)) {
+//                    if (catsAges[i] < min) {
+//                        min = catsAges[i];
+//                    }
+//                }
+//            }
+//            System.out.println("Возраст самого молодого кота " + min);
+//        }
+//
+//        if (catsAges2.length != 0) {
+//            min = catsAges2[0];
+//            for (int i = 0; i < catsAges2.length; i++) {
+//                if ((catsAges2[i] > 0) && (catsAges2[i] < 38)) {
+//                    if (catsAges2[i] < min) {
+//                        min = catsAges2[i];
+//                    }
+//                }
+//            }
+//            System.out.println("Возраст самого молодого кота " + min);
+//        }
 
-        printLine();
-
-        minValue(emptyArray);
-
-        printLine();
-
-        minValueAndRange(catsAges, 0, 38);
-
-        printLine();
-
-        minValueAndRange(catsAges2, 0, 38);
-
-        printLine();
+//        System.out.println(minValue(catsAges));
 
         task(14);
 
@@ -740,40 +609,16 @@ public class HW7 {
          * Распечатать возраст самого старого кота
          */
 
-        //int max = catsAges[0];
-        int max = Integer.MIN_VALUE;
-
-        if (catsAges.length != 0) {
-            for (int i = 0; i < catsAges.length; i++) {
-                if ((catsAges[i] > 0) && (catsAges[i] < 38)) {
-                    if (catsAges[i] > max) {
-                        max = catsAges[i];
-                    }
-                }
-
+        if (checkForEmptyArray(catsAges)) {
+            if (checkCatsAge(catsAges)) {
+                System.out.println("Age of the oldest cat is "
+                        + maxValue(catsAges));
+            } else {
+                System.out.println("Invalid data");
             }
-            System.out.println("Возраст самого старого кота " + max);
+        } else {
+            System.out.println("Array is empty");
         }
-
-        printLine();
-
-        maxValue(catsAges);
-
-        printLine();
-
-        maxValue(emptyArray);
-
-        printLine();
-
-        maxValueAndRange(catsAges,0,38);
-
-        printLine();
-
-        maxValueAndRange(catsAges2, 0, 38);
-
-        printLine();
-
-        System.out.println(checkForEmptyArray(emptyArray));
 
         task(15);
 
@@ -783,14 +628,16 @@ public class HW7 {
 
         int countColors = 0;
 
-        if (catsColors.length != 0) {
+        if (checkForEmptyArray(catsColors)) {
             for (int i = 0; i < catsColors.length; i++) {
                 if (catsColors[i].equals("Grey")) {
                     countColors++;
                 }
             }
-            System.out.println("Количество серых котов в коробках: "
+            System.out.println("Count of grey cats in boxes is "
                     + countColors);
+        } else {
+            System.out.println("Array is empty");
         }
 
         task(16);
@@ -835,6 +682,40 @@ public class HW7 {
                 }
             }
         }
+
+        printEmptyLine();
+
+        int evenArrayLength = 0;
+
+        for (int i = 0; i < 11; i += 2) {
+            evenArrayLength++;
+        }
+
+        int[] evenArray = new int [evenArrayLength];
+
+        for (int i = 0; i < evenArrayLength; i++) {
+            evenArray[i] = i * 2;
+            System.out.print(evenArray[i] + " ");
+        }
+
+        printEmptyLine();
+
+        // решение Ирины
+
+        int length = 0;
+
+        for (int i = 0; i <=10; i += 2) {
+            length++;
+        }
+
+        int[] array17 = new int [count];
+
+        int number = 0;
+        for (int i = 0; i < array17.length; i ++) {
+            array17[i] = number;
+            number += 2;
+        }
+        printArray(array17);
 
         task(18);
 
@@ -899,6 +780,28 @@ public class HW7 {
             }
         }
 
+        printEmptyLine();
+        printLine();
+
+        // решение другого ученика
+
+        int start = -1000;
+        int end = -900;
+        int lengthArray = end - start;
+
+        if (lengthArray > 0) {
+            int[] array18 = new int[lengthArray];
+
+            for (int i = 0; i < lengthArray; i++) {
+                if (start % 2 != 0) {
+                    array18[i] = start;
+                    System.out.print(array18[i] + " ");
+                }
+                start++;
+            }
+        }
+
+
         task(20);
 
         /** task 20.
@@ -926,6 +829,10 @@ public class HW7 {
         System.out.println("-----------");
 
         printMinMaxAverage(randomArr);
+
+        System.out.println("-----------");
+
+        numMinMaxAverage(randomArr);
 
         task(22);
 

@@ -49,20 +49,25 @@ public class HW8 {
      * и возвращает массив тех же чисел, умноженных на 2.5
      */
 
+    public static double[] arrayMultyNumber(int[] array, double a) {
+
+        double[] arrayMultyNumber = new double[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            arrayMultyNumber[i] = array[i] * a;
+        }
+        return arrayMultyNumber;
+    }
+
+
     public static double[] arrayMultiplication(int[] array, double a) {
 
-        if (array.length != 0) {
-            double[] arrayMultyD = new double[array.length];
+        if (checkForEmptyArray(array)) {
 
-            for (int i = 0; i < array.length; i++) {
-                arrayMultyD[i] = array[i] * a;
-            }
-
-            return arrayMultyD;
-        } else {
-            System.out.println("Array is empty");
+            return arrayMultyNumber(array, a);
         }
-        return new double[0];
+
+        return new double[]{};
     }
 
     /**
@@ -71,7 +76,7 @@ public class HW8 {
      * четных чисел в этом массиве
      */
 
-    public static int countOfElements(int[] array) {
+    public static int countEvenElements(int[] array) {
 
         int count = 0;
 
@@ -80,86 +85,54 @@ public class HW8 {
                 count++;
             }
         }
+
         return count;
     }
 
-    public static String countOfElements1(int[] array) {
-        if (array.length != 0) {
-            int count = 0;
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] < 0) {
-                    return "Array have negative number";
-                } else if (array[i] % 2 == 0) {
-                    count++;
-                }
+    public static int countOddElements(int[] array) {
+
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                count++;
             }
-            String count1;
-            count1 = String.valueOf(count);
-            return count1;
-        } else return "Array is empty";
+        }
+
+        return count;
     }
 
-//    public static void countOfElements(int[] array) {
+    public static int array11 (int[] array) {
+
+        if (checkForEmptyArray(array)) {
+            if (checkPositiveNumbers(array)) {
+
+                return countEvenElements(array);
+
+            }
+
+            return -1;
+        }
+
+        return -1;
+    }
+
+    // этот метод неверен, т.к. возвращает стринг, а по условиям задачи нужно
+    // вернуть числовое значение (инт)
+//    public static String countOfElements1(int[] array) {
 //        if (array.length != 0) {
 //            int count = 0;
 //            for (int i = 0; i < array.length; i++) {
 //                if (array[i] < 0) {
-//                    break;
+//                    return "Array have negative number";
 //                } else if (array[i] % 2 == 0) {
-//                     count++;
-//                }
-//            }
-//            System.out.println(count);
-//        } else {
-//            System.out.println("Array is empty");
-//        }
-//    }
-
-
-//    public static void countOfElements(int[] array) {
-//        if (array.length != 0) {
-//
-//            for (int i = 0; i < array.length; i++) {
-//                if (array[i] > 0) {
-//                    array[i] = array[i];
-//                } else if (array[i] < 0) {
-//                    System.out.println("Some elements of array not positive");
-//                    //break;
-//                }
-//            }
-//            int count = 0;
-//            for (int j = 0; j < array.length; j++) {
-//                if(array[j] % 2 == 0) {
 //                    count++;
 //                }
 //            }
-//            System.out.println(count);
-//        } else {
-//            System.out.println("Array is empty");
-//        }
-//    }
-
-//    public static int countOfElements(int[] array) {
-//        if (array.length != 0) {
-//
-//            for (int i = 0; i < array.length; i++) {
-//                if (array[i] > 0) {
-//                    array[i] = array[i];
-//                } else if (array[i] < 0) {
-//                    System.out.println("Some elements of array not positive");
-//                }
-//            }
-//            int count = 0;
-//            for (int j = 0; j < array.length; j++) {
-//                if(array[j] % 2 == 0) {
-//                    count++;
-//                }
-//            }
-//            return count;
-//        } else {
-//            System.out.println("Array is empty");
-//            return
-//        }
+//            String count1;
+//            count1 = String.valueOf(count);
+//            return count1;
+//        } else return "Array is empty";
 //    }
 
     /**
@@ -168,24 +141,355 @@ public class HW8 {
      * и возвращает массив нечетных чисел
      */
 
-//    public static int[] arrayOfNegatives(int[] array) {
-//
-//        int count = 0;
-//
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i] %2 == 0) {
-//                count++;
-//            }
-//        }
-//
-//        int[] arrayNegative = new int[array.length];
-//
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i] % 2 != 0) {
-//                arrayNegative[i] = array[i];
-//            }
-//        }
-//    }
+    public static int[] arrayOddNumbers(int[] array) {
+
+        int[] arrayOdd = new int[countOddElements(array)];
+
+        int number = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                arrayOdd[number] = array[i];
+                number++;
+            }
+        }
+
+        return arrayOdd;
+    }
+
+    public static int[] arrayEvenNumbers(int[] array) {
+
+        int[] arrayEven = new int[countEvenElements(array)];
+
+        int number = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                arrayEven[number] = array[i];
+                number++;
+            }
+        }
+
+        return arrayEven;
+    }
+
+    public static int[] array12 (int[] array) {
+
+        if (checkPositiveNumbers(array)) {
+            if (checkPositiveNumbers(array)) {
+
+                return arrayOddNumbers(array);
+            }
+
+            return new int[]{};
+        }
+
+        return new int[]{};
+    }
+
+    public static int[] array12_1 (int[] array) {
+
+        if (checkPositiveNumbers(array)) {
+            if (checkPositiveNumbers(array)) {
+
+                return arrayEvenNumbers(array);
+            }
+
+            return new int[]{};
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 13. Написать метод, который принимает на вход массив целых чисел,
+     * и возвращает массив значений true или false, если числа больше 10
+     */
+
+    public static boolean[] isNumMoreTen(int[] array) {
+
+        boolean[] isNumMoreTen = new boolean[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            isNumMoreTen[i] = (array[i] > 10);
+        }
+
+        return isNumMoreTen;
+    }
+
+    public static boolean[] isElementMoreDigit(int[] array, int digit) {
+
+        boolean[] isElementMoreDigit = new boolean[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            isElementMoreDigit[i] = (array[i] > digit);
+        }
+
+        return isElementMoreDigit;
+    }
+
+    public static boolean[] isElementLessDigit(int[] array, int digit) {
+
+        boolean[] isElementLessDigit = new boolean[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            isElementLessDigit[i] = (array[i] < digit);
+        }
+
+        return isElementLessDigit;
+    }
+
+    public static boolean[] array13(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+
+            return isNumMoreTen(array);
+        }
+
+        return new boolean[]{};
+    }
+
+    public static boolean[] array13_1(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+
+            return isElementMoreDigit(array,20);
+        }
+
+        return new boolean[]{};
+    }
+
+    public static boolean[] array13_2(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+
+            return isElementLessDigit(array,20);
+        }
+
+        return new boolean[]{};
+    }
+
+
+
+    /**
+     * 14. Написать метод, который принимает на вход массив слов,
+     * и возвращает строку, состоящую из этих слов
+     */
+
+    public static String makeString(String[] array) {
+
+        String newString = "";
+
+        for (int i = 0; i < array.length; i++) {
+            newString = newString + (array[i] + " ");
+        }
+
+        return newString;
+    }
+
+    /**
+     * 15. Написать метод, который принимает массив целых чисел
+     * и считает сумму чисел во второй половине массива
+     */
+
+    public static int sumOfSecondHalf(int[] array) {
+
+        int length = lengthArray(array);
+        int secondHalf = length / 2;
+
+        int sum = 0;
+
+        for (int i = secondHalf; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        return sum;
+    }
+
+    public static int array15(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+
+            return sumOfSecondHalf(array);
+        }
+
+        return Integer.MIN_VALUE;
+    }
+
+    /**
+     * 16. Написать метод, который принимает на вход целое положительные
+     * число в пределах от 1 до 10 исключительно, и возвращает таблицу
+     * умножения на это число в виде массива
+     * Например, метод(2) -> {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+     */
+
+    public static int[] multiplicationTable(int a) {
+
+        if (a > 1 && a < 10) {
+            int[] multiTable = new int[11];
+
+            for (int i = 0; i < 11; i++) {
+                multiTable[i] = a * i;
+            }
+
+            return multiTable;
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 17. Написать метод, который принимает массив целых чисел
+     * и возвращает массив четных чисел, если четных чисел больше,
+     * или массив нечетных чисел, если нечетных чисел больше.
+     */
+
+    public static int[] arrayEvenOrOdd1(int[] array) {
+
+        int countEven = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                countEven++;
+            }
+        }
+
+        int length = lengthArray(array);
+        int countOdd = length - countEven;
+
+        int[] arrayEven = new int[countEven];
+        int[] arrayOdd = new int[countOdd];
+        int[] arrayEmpty = new int[0];
+
+        int number = 0;
+
+        if (countEven == countOdd) {
+            return arrayEmpty;
+        } else if (countOdd > countEven) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] % 2 != 0) {
+                    arrayOdd[number] = array[i];
+                    number++;
+                }
+            }
+            return arrayOdd;
+        } else if (countEven > countOdd) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] % 2 == 0) {
+                    arrayEven[number] = array[i];
+                    number++;
+                }
+            }
+        }
+        return arrayEven;
+    }
+
+    public static int[] arrayEvenOrOdd(int[] array){
+
+        int countEven = countEvenElements(array);
+        int countOdd = countOddElements(array);
+
+
+        if (countEven == countOdd) {
+
+            return new int[]{};
+        } else if (countEven < countOdd) {
+
+            return arrayOddNumbers(array);
+        } else
+
+            return arrayEvenNumbers(array);
+    }
+
+    public static int[] array17(int[] array) {
+
+        if (checkForEmptyArray(array)) {
+
+            return arrayEvenOrOdd(array);
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 18. Написать метод, который принимает на вход длину массива
+     * и генерирует массив случайных положительных чисел
+     * от 0 до 100 исключительно.
+     */
+
+    public static int[] arrayRandom18 (int length) {
+
+        int[] randomArr = new int[length];
+
+        for (int i = 0; i < randomArr.length; i++) {
+            //randomArr[i] = ((int)(Math.random() * 99) + 1);
+            //randomArr[i] = (int)(Math.random() * 101);
+            randomArr[i] = randomNumInclusive(100,0);
+        }
+
+        return randomArr;
+    }
+
+    /**
+     * 19. Написать метод, который принимает на вход длину массива l
+     * и количество знаков d (однозначные, двузначные, трехзначные
+     * и тд числа), и генерирует массив случайных целых положительных
+     * чисел длины l, в котором все числа имеют количество знаков d
+     */
+
+    public static int[] arrayRandom19 (int length, int digit) {
+
+        int[] randomArr = new int[length];
+
+        for (int i = 0; i < randomArr.length; i++) {
+            if (digit < 1 || digit > 5) {
+
+                return new int[]{};
+            } else if (digit == 1) {
+                randomArr[i] = (int) (Math.random() * 10);
+            } else if (digit == 2) {
+                randomArr[i] = ((int)(Math.random() * 90) + 10);
+            } else if (digit == 3) {
+                randomArr[i] = ((int)(Math.random() * 900) + 100);
+            } else if (digit == 4) {
+                randomArr[i] = ((int)(Math.random() * 9000) + 1000);
+            } else if (digit == 5) {
+                randomArr[i] = ((int)(Math.random() * 90000) + 10000);
+            }
+        }
+
+        return randomArr;
+    }
+
+    //проверка на длину массива нецелесообразна, т.к. при передаче
+    //в параметры длину 0 - метод вернет пустой массив, как и при проверке
+    public static int[] arrayRandom19_1 (int length, int digit) {
+
+        int[] randomArr = new int[length];
+
+        if (checkForEmptyArray(randomArr)) {
+            for (int i = 0; i < randomArr.length; i++) {
+                if (digit < 1 || digit > 5) {
+                    return randomArr = new int[0];
+                } else if (digit == 1) {
+                    randomArr[i] = (int) (Math.random() * 10);
+                } else if (digit == 2) {
+                    randomArr[i] = ((int)(Math.random() * 90) + 10);
+                } else if (digit == 3) {
+                    randomArr[i] = ((int)(Math.random() * 900) + 100);
+                } else if (digit == 4) {
+                    randomArr[i] = ((int)(Math.random() * 9000) + 1000);
+                } else if (digit == 5) {
+                    randomArr[i] = ((int)(Math.random() * 90000) + 10000);
+                }
+            }
+            return randomArr;
+        }
+
+        return new int[]{};
+    }
+
+
+
     public static void main(String[] args) {
 
         task(4);
@@ -271,6 +575,20 @@ public class HW8 {
 
         System.out.println(Arrays.toString(arrayI3));
 
+
+        int[] arrayTestTask7 = {1, 2, 3, 4, 5};
+
+        int[] arrayTestTask7_1 = {2147483647, 0, 0, 0, -2147483648};
+
+        int[] arrayTestTask7_2 = {-1, -2, -3, -4, -5};
+
+        int[] arrayTestTask7_3 = {1, 2, 3, 11, 5};
+
+        System.out.println(verifyTwoArrays(arrayI1, arrayTestTask7));
+        System.out.println(verifyTwoArrays(arrayI1, arrayTestTask7_3));
+        System.out.println(verifyTwoArrays(arrayI2, arrayTestTask7_1));
+        System.out.println(verifyTwoArrays(arrayI3, arrayTestTask7_2));
+
         task(8);
 
         /**
@@ -278,9 +596,10 @@ public class HW8 {
          * и возвращает массив из этих же чисел
          */
 
-        double[] arrayD1 = arrayDouble(1.0, 2.0, 3.0, 4.0, 5.0);
-        double[] arrayD2 = arrayDouble(Double.MAX_VALUE, 0.0, 0.0, 0.0,
-                Double.MAX_VALUE);
+        double[] arrayD1 = arrayDouble(1.0, 2.0, 3.0, 4.0,
+                5.0);
+        double[] arrayD2 = arrayDouble(Double.MAX_VALUE, 0.0, 0.0,
+                0.0, Double.MAX_VALUE);
         double[] arrayD3 = arrayDouble(-1.0, -2.0, -3.0, -4.0,
                 -5.0);
 
@@ -289,6 +608,21 @@ public class HW8 {
         System.out.println(Arrays.toString(arrayD2));
 
         System.out.println(Arrays.toString(arrayD3));
+
+        double[] arrayTestTask8 = {1.0, 2.0, 3.0, 4.0, 5.0};
+
+        double[] arrayTestTask8_1 = {1.0, 2.0, 3.0, 11.0, 5.0};
+
+        double[] arrayTestTask8_2 = {1.7976931348623157E308, 0.0, 0.0, 0.0,
+                1.7976931348623157E308};
+
+        double[] arrayTestTask8_3 = {-1.0, -2.0, -3.0, -4.0, -5.0};
+
+        System.out.println(verifyTwoArrays(arrayD1, arrayTestTask8));
+        System.out.println(verifyTwoArrays(arrayD1, arrayTestTask8_1));
+        System.out.println(verifyTwoArrays(arrayD2, arrayTestTask8_2));
+        System.out.println(verifyTwoArrays(arrayD3, arrayTestTask8_3));
+
 
         task(9);
 
@@ -302,6 +636,15 @@ public class HW8 {
 
         System.out.println(Arrays.toString(arrayS1));
 
+        String[] arrayS2 = arrayString("Hi", "Hello", "Bye",
+                "Welcome", "Sorry");
+
+        String[] arrayS3 = arrayString("Goodbye", "Hello", "Bye",
+                "Welcome", "Sorry");
+
+        System.out.println(verifyTwoArrays(arrayS1, arrayS2));
+        System.out.println(verifyTwoArrays(arrayS1, arrayS3));
+
         task(10);
 
         /**
@@ -310,23 +653,62 @@ public class HW8 {
          */
 
         int[] emptyArray = new int[0];
-
         System.out.println(Arrays.toString(arrayMultiplication(arrayI1,
                 2.5)));
-
         System.out.println(Arrays.toString(arrayMultiplication(arrayI1,
                 3.5)));
-
         System.out.println(Arrays.toString(arrayMultiplication(arrayI1,
                 0)));
-
         System.out.println(Arrays.toString(arrayMultiplication(arrayI1,
                 -2.5)));
+        System.out.println(Arrays.toString(arrayMultiplication(emptyArray,
+                2.5)));
 
         printLine();
 
-        System.out.println(Arrays.toString(arrayMultiplication(emptyArray,
-                2.5)));
+        int[] arrayTask10 = {1, 2, 3, 4, 5, 6};
+
+        int[] arrayTask10_1 = new int[0];
+
+        int[] arrayTask10_2 = {1, 2, -3, 4, 5, 6};
+
+        if (checkForEmptyArray(arrayTask10)) {
+            System.out.println(Arrays.toString(arrayMultyNumber(arrayTask10,
+                    2.5)));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        printLine();
+
+        if (checkForEmptyArray(arrayTask10_1)) {
+            System.out.println(Arrays.toString(arrayMultyNumber
+                    (arrayTask10_1, 2.5)));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        printLine();
+
+        double[] arrayTest10 = {2.5, 5.0, 7.5, 10.0, 12.5};
+
+        double[] arrayTest10_1 = {2.5, 5.0, 7.5, 10.0, 12.5, 15.0};
+
+        double[] arrayTest10_2 = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+        double[] arrayTest10_3 = {-2.5, -5.0, -7.5, -10.0, -12.5, -15.0};
+
+        System.out.println(verifyTwoArrays((arrayMultyNumber(arrayTask10,
+                2.5)), arrayTest10));
+
+        System.out.println(verifyTwoArrays((arrayMultyNumber(arrayTask10,
+                2.5)), arrayTest10_1));
+
+        System.out.println(verifyTwoArrays((arrayMultyNumber(arrayTask10,
+                2.5)), arrayTest10_2));
+
+        System.out.println(verifyTwoArrays((arrayMultyNumber(arrayTask10,
+                2.5)), arrayTest10_3));
 
         task(11);
 
@@ -342,17 +724,25 @@ public class HW8 {
 
         int[] arrayTask11_2 = {1, 2, -3, 4, 5, 6};
 
-        System.out.println(countOfElements1(arrayTask11));
+        int abc1 = array11(arrayTask11);
+        int abc1_1 = array11(arrayTask11_1);
+        int abc1_2 = array11(arrayTask11_2);
 
-        System.out.println(countOfElements1(arrayTask11_1));
-
-        System.out.println(countOfElements1(arrayTask11_2));
+        System.out.println(abc1);
+        System.out.println(abc1_1);
+        System.out.println(abc1_2);
 
         printLine();
 
+//        System.out.println(countOfElements1(arrayTask11));
+//
+//        System.out.println(countOfElements1(arrayTask11_1));
+//
+//        System.out.println(countOfElements1(arrayTask11_2));
+
         if (checkForEmptyArray(arrayTask11)) {
             if (checkPositiveNumbers(arrayTask11)) {
-                System.out.println(countOfElements(arrayTask11));
+                System.out.println(countEvenElements(arrayTask11));
             } else {
                 System.out.println("Array have negative number");
             }
@@ -360,9 +750,16 @@ public class HW8 {
             System.out.println("Array is empty");
         }
 
+        int resulOfTask11 = (countEvenElements(arrayTask11));
+
+        System.out.println(verifyTwoValue(resulOfTask11, 3));
+        System.out.println(verifyTwoValue(resulOfTask11, 1));
+        System.out.println(verifyTwoValue(resulOfTask11, 0));
+        System.out.println(verifyTwoValue(resulOfTask11, -3));
+
         if (checkForEmptyArray(arrayTask11_1)) {
             if (checkPositiveNumbers(arrayTask11_1)) {
-                System.out.println(countOfElements(arrayTask11_1));
+                System.out.println(countEvenElements(arrayTask11_1));
             } else {
                 System.out.println("Array have negative number");
             }
@@ -372,15 +769,13 @@ public class HW8 {
 
         if (checkForEmptyArray(arrayTask11_2)) {
             if (checkPositiveNumbers(arrayTask11_2)) {
-                System.out.println(countOfElements(arrayTask11_2));
+                System.out.println(countEvenElements(arrayTask11_2));
             } else {
                 System.out.println("Array have negative number");
             }
         } else {
             System.out.println("Array is empty");
         }
-
-
 
         task(12);
 
@@ -389,7 +784,329 @@ public class HW8 {
          * и возвращает массив нечетных чисел
          */
 
+        int[] arrTask12 = {1, 2, 3, 4, 5, 6};
+
+        int[] arrTask12_1 = new int[0];
+
+        int[] arrTask12_2 = {-2, -3, 8, 5, -9, 7};
+
+        printArray(array12(arrTask12));
+        printArray(array12(arrTask12_1));
+        printArray(array12(arrTask12_2));
+
+        printLine();
+
+        printArray(array12_1(arrTask12));
+        printArray(array12_1(arrTask12_1));
+        printArray(array12_1(arrTask12_2));
+
+        printLine();
+
+        if (checkForEmptyArray(arrTask12)) {
+            if (checkPositiveNumbers(arrTask12)) {
+                printArray(arrayOddNumbers(arrTask12));
+            } else {
+                System.out.println("Array have negative number");
+            }
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        int[] arrTest12 = {1, 3, 5};
+        int[] arrTest12_1 = {0, 0, 0};
+
+        System.out.println(verifyTwoArrays(arrayOddNumbers(arrTask12),
+                arrTest12));
+        System.out.println(verifyTwoArrays(arrayOddNumbers(arrTask12),
+                arrTest12_1));
+
+        if (checkForEmptyArray(arrTask12_1)) {
+            if (checkPositiveNumbers(arrTask12_1)) {
+                printArray(arrayOddNumbers(arrTask12_1));
+            } else {
+                System.out.println("Array have negative number");
+            }
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        if (checkForEmptyArray(arrTask12_2)) {
+            if (checkPositiveNumbers(arrTask12_2)) {
+                printArray(arrayOddNumbers(arrTask12_2));
+            } else {
+                System.out.println("Array have negative number");
+            }
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        task(13);
+
+        /**
+         * 13. Написать метод, который принимает на вход массив целых чисел,
+         * и возвращает массив значений true или false, если числа больше 10
+         */
+
+        int[] arrTask13 = {10, 20, 30, 4, 5, 6};
+
+        int[] arrTask13_1 = new int[0];
+
+        int[] arrTask13_2 = {-10, 20, 30, 4, 5, 6};
+
+        int[] arrTask13_3 = {0, 0, 0, 0, 0, 0};
+
+        printArray(array13(arrTask13));
+        printArray(array13(arrTask13_1));
+        printArray(array13(arrTask13_2));
+        printArray(array13(arrTask13_3));
+
+        printLine();
+
+        printArray(array13_1(arrTask13));
+        printArray(array13_1(arrTask13_1));
+        printArray(array13_1(arrTask13_2));
+        printArray(array13_1(arrTask13_3));
+
+        printLine();
+
+        printArray(array13_2(arrTask13));
+        printArray(array13_2(arrTask13_1));
+        printArray(array13_2(arrTask13_2));
+        printArray(array13_2(arrTask13_3));
+
+        printLine();
+
+        boolean[] arrTest13 = {false, true, true, false, false, false};
+        boolean[] arrTest13_1 = {true, true, true, false, false, false};
+
+        if (checkForEmptyArray(arrTask13)) {
+            printArray(isNumMoreTen(arrTask13));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        System.out.println(verifyTwoArrays(isNumMoreTen(arrTask13), arrTest13));
+        System.out.println(verifyTwoArrays(isNumMoreTen(arrTask13),
+                arrTest13_1));
+
+        if (checkForEmptyArray(arrTask13_1)) {
+            printArray(isNumMoreTen(arrTask13_1));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        if (checkForEmptyArray(arrTask13_2)) {
+            printArray(isNumMoreTen(arrTask13_2));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        if (checkForEmptyArray(arrTask13_3)) {
+            printArray(isNumMoreTen(arrTask13_3));
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        task(14);
+
+        /**
+         * 14. Написать метод, который принимает на вход массив слов,
+         * и возвращает строку, состоящую из этих слов
+         */
+
+        String[] str = {"Hello", "world", "and", "good", "morning"};
+        String[] strEmpty = new String[0];
+        String strTest14 = "Hello world and good morning ";
+        String strTest14_1 = "Hello world and good morning";
+
+
+        if (checkForEmptyArray(str)) {
+            System.out.println(makeString(str));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        System.out.println(verifyTwoValue(makeString(str), strTest14));
+        System.out.println(verifyTwoValue(makeString(str), strTest14_1));
+
+        if (checkForEmptyArray(strEmpty)) {
+            System.out.println(makeString(strEmpty));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        task(15);
+
+        /**
+         * 15. Написать метод, который принимает массив целых чисел
+         * и считает сумму чисел во второй половине массива
+         */
+
+        int[] arrTask15 = {10, 20, 30, 4, 5, 6, 9};
+        int[] arrTask15_1 = {10, 20, 30, 4, 5, 6};
+        int[] arrTask15_2 = new int[0];
+        int[] arrTask15_3 = {0, 0, 0, 0, 0, 0};
+
+        System.out.println(array15(arrTask15));
+        System.out.println(array15(arrTask15_1));
+        System.out.println(array15(arrTask15_2));
+        System.out.println(array15(arrTask15_3));
+
+        printLine();
+
+        if (checkForEmptyArray(arrTask15)) {
+            System.out.println(sumOfSecondHalf(arrTask15));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        System.out.println(verifyTwoValue(sumOfSecondHalf(arrTask15),
+                24));
+        System.out.println(verifyTwoValue(sumOfSecondHalf(arrTask15_1),
+                15));
+        System.out.println(verifyTwoValue(sumOfSecondHalf(arrTask15),
+                0));
+        System.out.println(verifyTwoValue(sumOfSecondHalf(arrTask15),
+                -15));
+
+        if (checkForEmptyArray(arrTask15_1)) {
+            System.out.println(sumOfSecondHalf(arrTask15_1));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        if (checkForEmptyArray(arrTask15_2)) {
+            System.out.println(sumOfSecondHalf(arrTask15_2));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        if (checkForEmptyArray(arrTask15_3)) {
+            System.out.println(sumOfSecondHalf(arrTask15_3));
+        } else {
+            printArrayIsEmpty();
+        }
+
+        task(16);
+
+        /**
+         * 16. Написать метод, который принимает на вход целое положительные
+         * число в пределах от 1 до 10 исключительно, и возвращает таблицу
+         * умножения на это число в виде массива
+         * Например, метод(2) -> {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+         */
+
+        int a = 0; // Начальное значение диапазона - "от"
+        int b = 10; // Конечное значение диапазона - "до"
+
+        int random_number1 = a + (int) (Math.random() * b);
+        int random_number2 = ((int) (Math.random() * 9) + 1);
+
+        printArray(multiplicationTable(random_number1));
+        printArray(multiplicationTable(random_number2));
+        printArray(multiplicationTable(9));
+        printArray(multiplicationTable(3));
+
+        printLine();
+
+        printArray(multiplicationTable(1));
+        printArray(multiplicationTable(10));
+        printArray(multiplicationTable(0));
+        printArray(multiplicationTable(11));
+
+        int[] arrTest16 = {0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80};
+        int[] arrTest16_1 = {1, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80};
+        int[] arrTest16_2 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        System.out.println(verifyTwoArrays(multiplicationTable(8),
+                arrTest16));
+        System.out.println(verifyTwoArrays(multiplicationTable(8),
+                arrTest16_1));
+        System.out.println(verifyTwoArrays(multiplicationTable(0),
+                arrTest16_2));
+
+        task(17);
+
+        /**
+         * 17. Написать метод, который принимает массив целых чисел
+         * и возвращает массив четных чисел, если четных чисел больше,
+         * или массив нечетных чисел, если нечетных чисел больше.
+         */
+
+        int[] arrTask17 = {1, 8, 16, 24, 33, -40, 48};
+        int[] arrTask17_1 = {1, 7, -17, 24, 33, 40, 48};
+        int[] arrTask17_2 = {1, 8, 16, 24, 33, 41};
+        int[] arrTask17_3 = {0, 7, 0, 17, 0, 0};
+
+        printArray(arrayEvenOrOdd1(arrTask17));
+        printArray(arrayEvenOrOdd1(arrTask17_1));
+        printArray(arrayEvenOrOdd1(arrTask17_2));
+        printArray(arrayEvenOrOdd1(arrTask17_3));
+
+        printLine();
+
+        printArray(arrayEvenOrOdd(arrTask17));
+        printArray(arrayEvenOrOdd(arrTask17_1));
+        printArray(arrayEvenOrOdd(arrTask17_2));
+        printArray(arrayEvenOrOdd(arrTask17_3));
+
+        printLine();
+
+        printArray(array17(arrTask17));
+        printArray(array17(arrTask17_1));
+        printArray(array17(arrTask17_2));
+        printArray(array17(arrTask17_3));
+
+        printLine();
+
+        int[] arrTest17 = {8, 16, 24, -40, 48};
+        int[] arrTest17_1 = {0, 0, 0, 0};
+
+        System.out.println(verifyTwoArrays(arrayEvenOrOdd(arrTask17),
+                arrTest17));
+        System.out.println(verifyTwoArrays(arrayEvenOrOdd(arrTask17),
+                arrTest17_1));
+        System.out.println(verifyTwoArrays(arrayEvenOrOdd(arrTask17_3),
+                arrTest17_1));
+
+        task(18);
+
+        /**
+         * 18. Написать метод, который принимает на вход длину массива
+         * и генерирует массив случайных положительных чисел
+         * от 0 до 100 исключительно.
+         */
+
+        printArray(arrayRandom18(12));
+        //printArray(arrayRandom18(-12));
+        System.out.println(Arrays.toString(arrayRandom18(0)));
+        //printArray(arrayRandom(-3));
+
+        task(19);
+
+        /**
+         * 19. Написать метод, который принимает на вход длину массива l
+         * и количество знаков d (однозначные, двузначные, трехзначные
+         * и тд числа), и генерирует массив случайных целых положительных
+         * чисел длины l, в котором все числа имеют количество знаков d
+         */
+
+        printArray(arrayRandom19(6,1));
+        printArray(arrayRandom19(6,2));
+        printArray(arrayRandom19(6,3));
+        printArray(arrayRandom19(6,4));
+        printArray(arrayRandom19(6,5));
+        printArray(arrayRandom19(0,1));
+        System.out.println(Arrays.toString(arrayRandom19(5,0)));
+        System.out.println(Arrays.toString(arrayRandom19(5,6)));
+        System.out.println(Arrays.toString(arrayRandom19_1(5,0)));
+        System.out.println(Arrays.toString(arrayRandom19_1(5,6)));
+
+
+
+
+
+
 
     }
-
 }
