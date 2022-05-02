@@ -481,7 +481,6 @@ public class Utils {
         int countEven = countEvenElements(array);
         int countOdd = countOddElements(array);
 
-
         if (countEven == countOdd) {
 
             return new int[]{};
