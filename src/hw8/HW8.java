@@ -102,7 +102,7 @@ public class HW8 {
         return count;
     }
 
-    public static int array11 (int[] array) {
+    public static int array11(int[] array) {
 
         if (checkForEmptyArray(array)) {
             if (checkPositiveNumbers(array)) {
@@ -173,7 +173,7 @@ public class HW8 {
         return arrayEven;
     }
 
-    public static int[] array12 (int[] array) {
+    public static int[] array12(int[] array) {
 
         if (checkPositiveNumbers(array)) {
             if (checkPositiveNumbers(array)) {
@@ -187,7 +187,7 @@ public class HW8 {
         return new int[]{};
     }
 
-    public static int[] array12_1 (int[] array) {
+    public static int[] array12_1(int[] array) {
 
         if (checkPositiveNumbers(array)) {
             if (checkPositiveNumbers(array)) {
@@ -253,7 +253,7 @@ public class HW8 {
 
         if (checkForEmptyArray(array)) {
 
-            return isElementMoreDigit(array,20);
+            return isElementMoreDigit(array, 20);
         }
 
         return new boolean[]{};
@@ -263,13 +263,11 @@ public class HW8 {
 
         if (checkForEmptyArray(array)) {
 
-            return isElementLessDigit(array,20);
+            return isElementLessDigit(array, 20);
         }
 
         return new boolean[]{};
     }
-
-
 
     /**
      * 14. Написать метод, который принимает на вход массив слов,
@@ -383,7 +381,7 @@ public class HW8 {
         return arrayEven;
     }
 
-    public static int[] arrayEvenOrOdd(int[] array){
+    public static int[] arrayEvenOrOdd(int[] array) {
 
         int countEven = countEvenElements(array);
         int countOdd = countOddElements(array);
@@ -416,18 +414,19 @@ public class HW8 {
      * от 0 до 100 исключительно.
      */
 
-    public static int[] arrayRandom18 (int length) {
+    public static int[] arrayRandom18(int length) {
 
         int[] randomArr = new int[length];
 
         for (int i = 0; i < randomArr.length; i++) {
-            //randomArr[i] = ((int)(Math.random() * 99) + 1);
-            //randomArr[i] = (int)(Math.random() * 101);
-            randomArr[i] = randomNumInclusive(100,0);
+            randomArr[i] = randomNumInclusive(100, 0);
         }
 
         return randomArr;
     }
+
+    //randomArr[i] = ((int)(Math.random() * 99) + 1);
+    //randomArr[i] = (int)(Math.random() * 101);
 
     /**
      * 19. Написать метод, который принимает на вход длину массива l
@@ -436,7 +435,7 @@ public class HW8 {
      * чисел длины l, в котором все числа имеют количество знаков d
      */
 
-    public static int[] arrayRandom19 (int length, int digit) {
+    public static int[] arrayRandom19(int length, int digit) {
 
         int[] randomArr = new int[length];
 
@@ -447,13 +446,13 @@ public class HW8 {
             } else if (digit == 1) {
                 randomArr[i] = (int) (Math.random() * 10);
             } else if (digit == 2) {
-                randomArr[i] = ((int)(Math.random() * 90) + 10);
+                randomArr[i] = ((int) (Math.random() * 90) + 10);
             } else if (digit == 3) {
-                randomArr[i] = ((int)(Math.random() * 900) + 100);
+                randomArr[i] = ((int) (Math.random() * 900) + 100);
             } else if (digit == 4) {
-                randomArr[i] = ((int)(Math.random() * 9000) + 1000);
+                randomArr[i] = ((int) (Math.random() * 9000) + 1000);
             } else if (digit == 5) {
-                randomArr[i] = ((int)(Math.random() * 90000) + 10000);
+                randomArr[i] = ((int) (Math.random() * 90000) + 10000);
             }
         }
 
@@ -462,7 +461,7 @@ public class HW8 {
 
     //проверка на длину массива нецелесообразна, т.к. при передаче
     //в параметры длину 0 - метод вернет пустой массив, как и при проверке
-    public static int[] arrayRandom19_1 (int length, int digit) {
+    public static int[] arrayRandom19_1(int length, int digit) {
 
         int[] randomArr = new int[length];
 
@@ -473,13 +472,13 @@ public class HW8 {
                 } else if (digit == 1) {
                     randomArr[i] = (int) (Math.random() * 10);
                 } else if (digit == 2) {
-                    randomArr[i] = ((int)(Math.random() * 90) + 10);
+                    randomArr[i] = ((int) (Math.random() * 90) + 10);
                 } else if (digit == 3) {
-                    randomArr[i] = ((int)(Math.random() * 900) + 100);
+                    randomArr[i] = ((int) (Math.random() * 900) + 100);
                 } else if (digit == 4) {
-                    randomArr[i] = ((int)(Math.random() * 9000) + 1000);
+                    randomArr[i] = ((int) (Math.random() * 9000) + 1000);
                 } else if (digit == 5) {
-                    randomArr[i] = ((int)(Math.random() * 90000) + 10000);
+                    randomArr[i] = ((int) (Math.random() * 90000) + 10000);
                 }
             }
             return randomArr;
@@ -488,7 +487,236 @@ public class HW8 {
         return new int[]{};
     }
 
+    /**
+     * 20. Написать метод, который принимает на вход массив
+     * целых положительных чисел, и возвращает массив
+     * только двузначных чисел.
+     * Проверить работу метода на массиве из задания 18.
+     */
 
+    //решение Ирины
+    public static int[] createDoubleDigitsArray(int[] array) {
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 9 && array[i] < 100) {
+                count++;
+            }
+        }
+
+        int[] newArray = new int[count];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 9 && array[i] < 100) {
+                newArray[newArray.length - count] = array[i];
+                count--;
+            }
+        }
+
+        return newArray;
+    }
+
+    /**
+     * 21. Написать метод, который принимает на вход массив
+     * целых положительных двузначных чисел, и возвращает массив
+     * разниц между десятками и единицами
+     */
+
+    public static int[] differenceBetweenTenAndOne(int[] array) {
+
+        if (array.length != 0) {
+            int[] arr = new int[array.length];
+
+            for (int i = 0; i < array.length; i++) {
+                //arr[i] = array[i] / 10 * 10 - array[i] % 10;
+                arr[i] = Math.abs(array[i] / 10 - array[i] % 10);
+            }
+
+            return arr;
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 22. Написать метод, который принимает массив из 11 целых
+     * положительных чисел от 0 до 9, и возвращает массив,
+     * который содержит номер телефона, состоящий из этих чисел,
+     * и название страны, которой номер принадлежит.
+     * Например:
+     * method({1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7}) ->
+     * {“1(800)123-45-67”, “USA”}
+     */
+
+    public static String[] getPhoneNumber(int[] array) {
+        if (array == null || array.length == 0) {
+
+            return null;
+        }
+
+        String[] arrayPhoneNumber = new String[2];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= 0) {
+                arrayPhoneNumber[0] = "" + "\"" + array[0] + "(" + array[1]
+                        + array[2] + array[3] + ")" + array[4] + array[5]
+                        + array[6] + "-" + array[7] + array[8] + "-"
+                        + array[9] + array[10] + "\"";
+
+                if (array[0] == 1) {
+                    arrayPhoneNumber[1] = "\"USA\"";
+                } else if (array[0] == 2) {
+                    arrayPhoneNumber[1] = "\"Canada\"";
+                } else if (array[0] == 3) {
+                    arrayPhoneNumber[1] = "\"China\"";
+                } else if (array[0] == 4) {
+                    arrayPhoneNumber[1] = "\"Australia\"";
+                } else if (array[0] == 5) {
+                    arrayPhoneNumber[1] = "\"New Zeland\"";
+                } else if (array[0] == 6) {
+                    arrayPhoneNumber[1] = "\"Germany\"";
+                } else if (array[0] == 7) {
+                    arrayPhoneNumber[1] = "\"Switzerland\"";
+                } else if (array[0] == 8) {
+                    arrayPhoneNumber[1] = "\"France\"";
+                } else if (array[0] == 9) {
+                    arrayPhoneNumber[1] = "\"Japan\"";
+                }
+            } else {
+
+                return null;
+            }
+        }
+
+        return arrayPhoneNumber;
+    }
+
+    /**
+     * 23. Написать метод, который принимает массив целых положительных
+     * чисел больше 0, и возвращает массив уникальных чисел.
+     */
+
+    public static int[] arrayOfUniqueDigits(int[] array) {
+        if (checkForEmptyArray(array)) {
+            int[] arrUnique;
+            int count = 0;
+            for (int i = 0; i < array.length; i++) {
+                for (int j = i + 1; j < array.length; j++) {
+                    if (array[i] == array[j]) {
+                        array[i] = Integer.MIN_VALUE;
+                    }
+                }
+            }
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == Integer.MIN_VALUE) {
+                    count++;
+                }
+            }
+            arrUnique = new int[(array.length - count)];
+            count = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] != Integer.MIN_VALUE) {
+                    arrUnique[count] = array[i];
+                    count++;
+                }
+            }
+
+            return arrUnique;
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 24. Написать метод, который принимает на вход массив целых
+     * положительных чисел, и возвращает количество уникальных и
+     * неуникальных элементов в этом массиве
+     */
+
+    //решение Ирины
+    public static int[] countUniqueNonUnique(int[] array) {
+        int n = 0;
+
+        if (array.length > 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] >= 0) {
+                    for (int j = i + 1; j < array.length; j++) {
+                        if (array[i] == array[j]) {
+                            array[j] = -1;
+                            n++;
+                        }
+                    }
+                }
+            }
+
+            return new int[]{array.length - n, n};
+        }
+
+        return new int[]{};
+    }
+
+    /**
+     * 25. Написать метод, который принимает на вход массив целых
+     * положительных чисел, и 2 целых положительных числа
+     * (значения индексов). Метод возвращает массив, который
+     * содержит только числа из первого массива
+     * в промежутке между индексами.
+     * Например:
+     * method({1, 2, 3, 4, 5}, 1, 3) -> {2, 3, 4}
+     */
+
+    public static int[] subArray(int[] array, int start, int end) {
+
+        if (array.length == 0 || start < 0
+                || end > (array.length - 1) || start > end) {
+
+            return new int[]{};
+        }
+
+        //int count = 0;
+
+        if (checkPositiveNumbers(array)) {
+
+//            for (int i = start; i < end; i++) {
+//                count++;
+//            }
+
+            int[] subArr = new int[(end-start) + 1];
+
+            int j = 0;
+
+            for (int i = start; i <= end; i++) {
+                subArr[j] = array[i];
+                j++;
+            }
+
+            return subArr;
+        }
+
+        return new int[]{};
+
+    }
+
+    /**
+     * 26. Написать метод, который принимает на вход 2 массива int[] и
+     * возвращает объединенный массив уникальных неповторяющихся элементов
+     */
+
+    public static int[] getUniqueArray(int[] array, int[] array1) {
+        if (array == null || array1 == null
+                || (array1.length == 0 && array.length == 0)) {
+
+            return null;
+        } else {
+            int[] arrayUnique = new int[array.length + array1.length];
+            for (int i = 0; i < array.length; i++) {
+                arrayUnique[i] = array[i];
+            }
+            for (int i = 0; i < array1.length; i++) {
+                arrayUnique[array.length + i] = array1[i];
+            }
+
+            return arrayOfUniqueDigits(arrayUnique);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -1091,21 +1319,134 @@ public class HW8 {
          * чисел длины l, в котором все числа имеют количество знаков d
          */
 
-        printArray(arrayRandom19(6,1));
-        printArray(arrayRandom19(6,2));
-        printArray(arrayRandom19(6,3));
-        printArray(arrayRandom19(6,4));
-        printArray(arrayRandom19(6,5));
-        printArray(arrayRandom19(0,1));
-        System.out.println(Arrays.toString(arrayRandom19(5,0)));
-        System.out.println(Arrays.toString(arrayRandom19(5,6)));
-        System.out.println(Arrays.toString(arrayRandom19_1(5,0)));
-        System.out.println(Arrays.toString(arrayRandom19_1(5,6)));
+        printArray(arrayRandom19(6, 1));
+        printArray(arrayRandom19(6, 2));
+        printArray(arrayRandom19(6, 3));
+        printArray(arrayRandom19(6, 4));
+        printArray(arrayRandom19(6, 5));
+        printArray(arrayRandom19(0, 1));
+        System.out.println(Arrays.toString(arrayRandom19(5, 0)));
+        System.out.println(Arrays.toString(arrayRandom19(5, 6)));
+        System.out.println(Arrays.toString(arrayRandom19_1(5, 0)));
+        System.out.println(Arrays.toString(arrayRandom19_1(5, 6)));
+
+        task(20);
+
+        /**
+         * 20. Написать метод, который принимает на вход массив
+         * целых положительных чисел, и возвращает массив
+         * только двузначных чисел.
+         * Проверить работу метода на массиве из задания 18.
+         */
+
+        System.out.println(
+                Arrays.toString(
+                        createDoubleDigitsArray(arrayRandom18(8)))
+        );
+
+        int[] arr20 = {8, 95, 365, 2, 74, 21, 3, 741};
+
+        System.out.println(Arrays.toString(createDoubleDigitsArray(arr20)));
+
+        task(21);
+
+        /**
+         * 21. Написать метод, который принимает на вход массив
+         * целых положительных двузначных чисел, и возвращает массив
+         * разниц между десятками и единицами
+         */
+
+        int[] arr21 = {95, 25, 27, 74, 21, 93};
+
+        System.out.println(Arrays.toString(differenceBetweenTenAndOne(arr21)));
+
+        task(22);
+
+        /**
+         * 22. Написать метод, который принимает массив из 11 целых
+         * положительных чисел от 0 до 9, и возвращает массив,
+         * который содержит номер телефона, состоящий из этих чисел,
+         * и название страны, которой номер принадлежит.
+         * Например:
+         * method({1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7}) ->
+         * {“1(800)123-45-67”, “USA”}
+         */
+
+        int[] arr22 = {1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7};
+
+        System.out.println(Arrays.toString(getPhoneNumber(arr22)));
+
+        task(23);
+
+        /**
+         * 23. Написать метод, который принимает массив целых положительных
+         * чисел больше 0, и возвращает массив уникальных чисел.
+         */
+
+        int[] arr23 = {78, 7, 45, 45, 7, 7, 23};
+
+        int[] arr23_1 = {33, 33, 33, 33};
+
+        System.out.println(Arrays.toString(arrayOfUniqueDigits(arr23)));
+
+        System.out.println(Arrays.toString(arrayOfUniqueDigits(arr23_1)));
+
+        task(24);
+
+        /**
+         * 24. Написать метод, который принимает на вход массив целых
+         * положительных чисел, и возвращает количество уникальных и
+         * неуникальных элементов в этом массиве
+         */
+
+        int[] arr24 = {78, 7, 45, 45, 7, 7, 23};
+        int[] arr24_1 = {1, 1, 1, 1, 1, 2};
+        int[] arr24_3 = {0, 0, 0, 0, 0};
+
+        System.out.println(Arrays.toString(countUniqueNonUnique(arr24)));
+        System.out.println(Arrays.toString(countUniqueNonUnique(arr24_1)));
+        System.out.println(Arrays.toString(countUniqueNonUnique(arr24_3)));
+
+        task(25);
+
+        /**
+         * 25. Написать метод, который принимает на вход массив целых
+         * положительных чисел, и 2 целых положительных числа
+         * (значения индексов). Метод возвращает массив, который
+         * содержит только числа из первого массива
+         * в промежутке между индексами.
+         * Например:
+         * method({1, 2, 3, 4, 5}, 1, 3) -> {2, 3, 4}
+         */
+
+        int[] arr25 = {1, 2, 3, 4, 5};
+
+        int[] arr25_1 = {1, 2, 56, 3, 4, 5};
+
+        int[] arr25_2 = new int[0];
 
 
 
+        System.out.println(Arrays.toString(subArray(arr25,1,3)));
+        System.out.println(Arrays.toString(subArray(arr25_1,1,4)));
+
+        System.out.println(Arrays.toString(subArray(arr25_1,2,1)));
+
+        System.out.println(Arrays.toString(subArray(arr25_2,1,4)));
 
 
+        task(26);
+
+        /**
+         * 26. Написать метод, который принимает на вход 2 массива int[] и
+         * возвращает объединенный массив уникальных неповторяющихся элементов
+         */
+
+        int[] arr26 = {1, 3, 25, 1, 8};
+
+        int[] arr26_1 = {2, 4, 14, 1, 8};
+
+        System.out.println(Arrays.toString(getUniqueArray(arr26, arr26_1)));
 
 
     }
