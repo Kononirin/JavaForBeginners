@@ -532,4 +532,14 @@ public class Utils {
                 + ", average = " + average);
     }
 
+    public static boolean isStringNull(String str) {
+
+        if (str == null) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+    }
 }
