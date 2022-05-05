@@ -2,7 +2,23 @@ import java.util.Arrays;
 
 import static utils.Utils.*;
 
+
+
 public class Main {
+
+    public static void printSeq(double start, double end, double step, int d) {
+        if (start < end && step > 0) {
+            for (start = start; start < end; start += step) {
+                System.out.println(formatDouble(start, d));
+            }
+        } else if (start > end && step < 0) {
+            for (start = start; start > end; start += step) {
+                System.out.println(formatDouble(start, d));
+            }
+        } else {
+            System.out.println("Invalid data");
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -69,6 +85,19 @@ public class Main {
         System.out.println(Arrays.toString(arrayRandomInclusive(0,10,
                 1)));
 
+
+        printLine();
+
+
+        System.out.println(formatDouble(12.658899, 3));
+
+        System.out.println("_______________");
+
+        printSeq(10.5, 20.75, 1.29, 2);
+
+        System.out.println("_______________");
+
+        printSeq(15.9, 0, -1.45, 2);
 
 
 
