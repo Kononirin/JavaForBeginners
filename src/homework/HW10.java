@@ -164,8 +164,37 @@ public class HW10 {
         return "";
     }
 
+    /**
+     * 5. Напишите метод, который принимает на вход строку и считает, сколько
+     * букв а или А содержится в строке.
+     * Test Data:
+     * “Abracadabra” → 5
+     * “Homenum Revelio” → 0
+     */
+
+    public static int countA(String str) {
+
+        if (!isStringNull(str)) {
+            if (!str.isEmpty()) {
+                str = str.toLowerCase();
+                int count = 0;
+                for (int i = 0; i < str.length(); i++) {
+                    if (str.charAt(i) == 'a') {
+                        count++;
+                    }
+                }
+
+                return count;
+            }
+
+            return Integer.MIN_VALUE;
+        }
+
+        return Integer.MIN_VALUE;
+    }
+
     public static String emptyString = "";
-    public static String nullValue = null;
+    public static String nullString = null;
 
     public static void main(String[] args) {
 
@@ -177,7 +206,7 @@ public class HW10 {
         System.out.println(str);
         System.out.println(capitalizeWords(str));
         System.out.println(capitalizeWords(emptyString));
-        System.out.println(capitalizeWords(nullValue));
+        System.out.println(capitalizeWords(nullString));
         System.out.println(capitalizeWords(strJohn));
         System.out.println(capitalizeWords(" "));
 
@@ -205,7 +234,7 @@ public class HW10 {
         System.out.println(deleteSpaces(str1));
         System.out.println(deleteSpaces(str1_1));
         System.out.println(deleteSpaces(emptyString));
-        System.out.println(deleteSpaces(nullValue));
+        System.out.println(deleteSpaces(nullString));
 
         task(2);
 
@@ -230,7 +259,7 @@ public class HW10 {
         System.out.println(removeAlla(str2));
         System.out.println(removeAlla(str2_1));
         System.out.println(removeAlla(emptyString));
-        System.out.println(removeAlla(nullValue));
+        System.out.println(removeAlla(nullString));
 
         task(3);
 
@@ -252,7 +281,7 @@ public class HW10 {
         System.out.println(removeAllZeros(str3));
         System.out.println(removeAllZeros(str3_1));
         System.out.println(removeAllZeros(emptyString));
-        System.out.println(removeAllZeros(nullValue));
+        System.out.println(removeAllZeros(nullString));
 
         task(4);
 
@@ -273,7 +302,27 @@ public class HW10 {
         System.out.println(removeAllSpaces(str4));
         System.out.println(removeAllSpaces(str4_1));
         System.out.println(removeAllSpaces(emptyString));
-        System.out.println(removeAllSpaces(nullValue));
+        System.out.println(removeAllSpaces(nullString));
+
+        task(5);
+
+        /**
+         * 5. Напишите метод, который принимает на вход строку и считает, сколько
+         * букв а или А содержится в строке.
+         * Test Data:
+         * “Abracadabra” → 5
+         * “Homenum Revelio” → 0
+         */
+
+        String str5 = "Abracadabra";
+        String str5_1 = "Homenum Revelio";
+
+        System.out.println(countA(str5));
+        System.out.println(countA(str5_1));
+        System.out.println(countA(emptyString));
+        System.out.println(countA(nullString));
+
+        task(6);
 
 
 
