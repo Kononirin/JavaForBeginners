@@ -543,6 +543,21 @@ public class Utils {
         }
     }
 
+//    public static boolean isStringNullAndEmpty (String str) {
+//
+//        if (str == null) {
+//
+//            if (str.isEmpty()) {
+//
+//                return true;
+//            }
+//
+//            return false;
+//        }
+//
+//        return false;
+//    }
+
     public static double formatDouble(double number, int d) {
 
         int num = (int) Math.round(number * Math.pow(10, d));
