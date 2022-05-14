@@ -401,6 +401,34 @@ public class HW10 {
         return Integer.MIN_VALUE;
     }
 
+    /**
+     * 14. Написать метод,  который принимает на вход 2 буквы и возвращает
+     * true, если первая буква встречается раньше второй, иначе метод
+     * возвращает false
+     * method(“a”, “m”) → true
+     * method(“m”, “l”) → false
+     */
+
+    public static boolean isLetterEarlier(String letter1, String letter2) {
+
+        if (!isStringNull(letter1) && !isStringNull(letter2)) {
+            if (!letter1.isEmpty() && !letter2.isEmpty()) {
+                letter1 = letter1.trim();
+                letter2 = letter2.trim();
+                if (letter1.charAt(0) < letter2.charAt(0)) {
+
+                    return true;
+                } else
+
+                    return false;
+            }
+
+            return false;
+        }
+
+        return false;
+    }
+
     public static String emptyString = "";
     public static String nullString = null;
 
@@ -536,13 +564,16 @@ public class HW10 {
          */
 
         String str6 =
-                "As of March 2022, Java 18 is the latest version, while Java 17,\n" +
-                        " 11 and 8 are the current long-term support (LTS) versions.\n" +
-                        " Oracle released the last zero-cost public update for the legacy\n" +
-                        " version Java 8 LTS in January 2019 for commercial use, although\n" +
-                        " it will otherwise still support Java 8 with public updates for\n" +
-                        " personal use indefinitely. Other vendors have begun to offer\n" +
-                        " zero-cost builds of OpenJDK 8 and 11 that are still receiving\n" +
+                "As of March 2022, Java 18 is the latest version, while Java\n"
+                        + "17, 11 and 8 are the current long-term support\n"
+                        + "(LTS) versions. Oracle released the last zero-cost\n"
+                        + " public update for the legacy version Java 8\n"
+                        + "LTS in January 2019 for commercial use, although\n"
+                        + " it will otherwise still support Java 8 with\n"
+                        + "public updates for personal use indefinitely.\n"
+                        + "Other vendors have begun to offer\n" +
+                        " zero-cost builds of OpenJDK 8 and 11 that are\n"
+                        + "still receiving\n" +
                         " security and other upgrades.";
 
         String str6_1 =
@@ -613,8 +644,8 @@ public class HW10 {
         task(9);
 
         /**
-         * 9. Напишите метод, который принимает на вход строку, и возвращает все,
-         * что находится между первой и последней буквой-параметром:
+         * 9. Напишите метод, который принимает на вход строку, и возвращает
+         * все, что находится между первой и последней буквой-параметром:
          * Test Data:
          * “Abracadabra”, “b” → “bracadab”
          * “Whippersnapper”, “p” → “ppersnapp”
@@ -706,5 +737,26 @@ public class HW10 {
         System.out.println(sumOfLetters(str13_2));
         System.out.println(sumOfLetters(nullString));
         System.out.println(sumOfLetters(emptyString));
+
+        task(14);
+
+        /**
+         * 14. Написать метод,  который принимает на вход 2 буквы и возвращает
+         * true, если первая буква встречается раньше второй, иначе метод
+         * возвращает false
+         * method(“a”, “m”) → true
+         * method(“m”, “l”) → false
+         */
+
+        String letter1 = "a";
+        String letter2 = "m";
+        String letter3 = "l";
+        String letter4 = "";
+        String letter5 = null;
+
+        System.out.println(isLetterEarlier(letter1, letter2));
+        System.out.println(isLetterEarlier(letter2, letter3));
+        System.out.println(isLetterEarlier(letter1, letter4));
+        System.out.println(isLetterEarlier(letter1, letter5));
     }
 }

@@ -17,7 +17,18 @@ public class Methods {
          * length()
          * trim()
          * replace()
-         *
+         * replaceAll()
+         * isEmpty()
+         * split()
+         * indexOf()
+         * lastIndexOf()
+         * toLowerCase()
+         * toUpperCase()
+         * charAt()
+         * concat()
+         * substring()
+         * contains()
+         * valueOf()
          */
 
 
@@ -359,6 +370,8 @@ public class Methods {
          * представленного этим объектом.
          */
 
+        System.out.println("Метод length()");
+
         String str7 = new String("Добро пожаловать на ProgLang.su");
         String str8 = new String("ProgLang.su" );
 
@@ -368,16 +381,22 @@ public class Methods {
         System.out.print("Длина строки \"ProgLang.su\"-" );
         System.out.println(str8.length());
 
+        System.out.println();
+
         /**
          * Метод trim() — возвращает копию строки с пропущенными начальными и
          * конечными пробелами, другими словами метод позволяет в Java удалить
          * пробелы в начале и конце строки.
          */
 
+        System.out.println("Метод trim()");
+
         String str4 = new String("   Добро пожаловать на ProgLang.su   ");
 
         System.out.print("Возвращаемое значение: ");
         System.out.println(str4.trim());
+
+        System.out.println();
 
         /**
          * Метод replace() — возвращает В Java новую строку, в результате,
@@ -388,16 +407,48 @@ public class Methods {
          * replace(char oldChar, char newChar)
          */
 
+        System.out.println("Метод replace()");
+
         String str5 = new String("Добро пожаловать на ProgLang.su");
 
         System.out.print("Возвращаемое значение: " );
         System.out.println(str5.replace('s', 'b'));
 
+        System.out.println();
+
         /**
-         * Метод isEmpty () используется для проверки, если length () равен 0
+         * Метод replaceAll() — заменяет каждую подстроку данной строки,
+         * которая соответствует заданному регулярному выражению, с данной
+         * заменой, другими словами — метод позволяет заменить слово в строке.
+         * String replaceAll(String regex, String replacement)
+         * regex — регулярное выражение, которому данная строка должна
+         * соответствовать;
+         * replacement — строка, которая заменит найденное выражение.
+         * replaceAll() возвращает результирующую строку
+         */
+
+        System.out.println("Метод replaceAll()");
+
+        String str12 = new String("Добро пожаловать на ProgLang.su");
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str12.replaceAll("(.*)ProgLang(.*)",
+                "IAMGROOT"));
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str12.replaceAll("ProgLang.su",
+                "сайт посвященный программированию!"));
+
+        System.out.println();
+
+
+        /**
+         * Метод isEmpty() используется для проверки, если length () равен 0
          * для данной строки.
          * Возвращаемое значение: true, если length () равно 0, иначе false         *
          */
+
+        System.out.println("Метод isEmpty()");
 
         String str6 ="javaexercises";
         System.out.println();
@@ -405,27 +456,240 @@ public class Methods {
         System.out.println("Length of string =" + str6.length());
 
         // checks if the string is empty or not
-        System.out.println("Is this string empty? =" + str6.isEmpty());
+        System.out.println("Is this string empty? = " + str6.isEmpty());
+        System.out.println();
+
         System.out.println();
 
         /**
-         * indexOf array
+         * Метод split() — в Java разделяет данную строку вокруг данного
+         * регулярного выражения и имеет два варианта.
+         *
+         * public String[] split(String regex, int limit)
+         * или
+         * public String[] split(String regex)
+         *
+         * split() возвращает массив строк, вычисленных путем разделения
+         * данной строки вокруг данного регулярного выражения
+         *
+         * Параметры
+         * regex — разграничение регулярного выражения;
+         * limit — порог, результатом которого означает, как много строк,
+         * должно быть возвращено.
          */
 
-        /**
-         * substring
-         */
+        System.out.println("Метод split()");
+
+        //Пример 1: разделить строку вокруг регулярного выражения
+
+        String Str7 = new String("Добро-пожаловать-на-ProgLang.su");
+
+        System.out.println("Возвращаемое значение: ");
+        for (String retval : Str7.split("-", 2)) {
+            System.out.println(retval);
+        }
+
+        //Пример 2: разделить строку на слова
+
+        String Str8 = new String("Разделяем эту строку на слова");
+
+        for (String retval : Str8.split(" ")) {
+            System.out.println(retval);
+        }
+
+        System.out.println();
 
         /**
-         * valueOf
+         * Метод indexOf() в Java имеет следующие варианты:
+         * int indexOf(String str) — возвращает индекс в данной строке первого
+         * вхождения указанной подстроки. Если эта подстрока не встречается,
+         * возвращается -1.
+         * int indexOf(String str, int fromIndex) — возвращает индекс в данной
+         * строке первого вхождения указанной подстроки, начиная с указанного
+         * индекса. Если не встречается, возвращается -1.
+         * fromIndex — индекс, чтобы начать поиск (от);
          */
 
-        /**
-         * charAt(int)
-         */
+        System.out.println("Метод indexOf()");
+
+        String str9 = new String("Добро пожаловать на ProgLang.su");
+        String subStr1 = new String("Prog");
+        String subStr2 = new String("Srog");
+
+        System.out.print("Найденный индекс: ");
+        System.out.println(str9.indexOf('о'));
+        System.out.print("Найденный индекс: ");
+        System.out.println(str9.indexOf('о', 5));
+        System.out.print("Найденный индекс: ");
+        System.out.println( str9.indexOf(subStr1));
+        System.out.print("Найденный индекс: ");
+        System.out.println( str9.indexOf(subStr1, 21));
+        System.out.print("Найденный индекс: ");
+        System.out.println(str9.indexOf(subStr2));
+
+        System.out.println();
 
         /**
-         * contains
+         * Метод lastIndexOf()
+         * public int lastIndexOf(String str) — если аргумент строки
+         * встречается один или несколько раз в подстроке в этом объекте,
+         * то он возвращает индекс первого символа последней такой подстроки.
+         * public int lastIndexOf(String str, int fromIndex) — возвращает
+         * индекс внутри данной строки последнего вхождения указанной
+         * подстроки, поиск осуществляется назад, начиная с указанного индекса.
+         * fromIndex — индекс, чтобы начать поиск (от);
          */
+
+        System.out.println("Метод lastIndexOf()");
+
+        String str10 = new String("Добро пожаловать на ProgLang.su");
+        String SubStr1 = new String("Prog");
+        String SubStr2 = new String("Srog");
+
+        System.out.print("Найденный последний индекс:");
+        System.out.println(str10.lastIndexOf('о'));
+        System.out.print("Найденный последний индекс: ");
+        System.out.println(str10.lastIndexOf('о', 5));
+        System.out.print("Найденный последний индекс: ");
+        System.out.println(str10.lastIndexOf(SubStr1));
+        System.out.print("Найденный последний индекс: ");
+        System.out.println(str10.lastIndexOf(SubStr1, 21));
+        System.out.print("Найденный последний индекс: " );
+        System.out.println(str10.lastIndexOf(SubStr2));
+
+        System.out.println();
+
+        /**
+         * Метод toLowerCase() возвращает строку, преобразованную в
+         * нижний регистр.
+         * Метод toUpperCase() возвращает строку, преобразованную в
+         * верхний регистр.
+         * Параметров нет.
+         */
+
+        System.out.println("Метод toLowerCase() and toUpperCase()");
+
+        String str11 = new String("Добро пожаловать на ProgLang.su");
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str11.toLowerCase());
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str11.toUpperCase());
+
+        System.out.println();
+
+        /**
+         * Метод charAt() — возвращает символ, расположенный по указанному
+         * индексу строки. Индексы строк в Java начинаются с нуля.
+         */
+
+        System.out.println("Метод charAt()");
+
+        String s = "Я буду хорошим программистом!";
+        char result1 = s.charAt(8);
+        char result2 = s.charAt(11);
+        System.out.println("Восьмой символ строки - " + result1);
+        System.out.println("Одиннадцатый символ строки - " + result2);
+
+        System.out.println();
+
+        /**
+         * Метод concat() — возвращает строку со значением строки,
+         * переданной в метод и приложенной к концу строки, используемой
+         * для вызова этого метода. Проще говоря метод concat() в Java
+         * объединяет строки, путем добавления одной строки в конец к другой.
+         */
+
+        System.out.println("Метод concat()");
+
+        String str13 = "Я стану программистом!";
+        str13 = str13.concat(" Очень хорошим программистом!");
+
+        System.out.println(str13);
+
+        System.out.println();
+
+        /**
+         * Метод substring() в Java имеет два варианта и возвращает новую
+         * строку, которая является подстрокой данной строки. Подстрока
+         * начинается с символа, заданного индексом, и продолжается до
+         * конца данной строки или до endIndex-1, если введен второй аргумент.
+         * public String substring(int beginIndex)
+         * public String substring(int beginIndex, int endIndex)
+         * beginIndex — начальный индекс, включительно;
+         * endIndex — конечный индекс, не включая;
+         * substring() возвращаемое значение заданно подстрокой
+         */
+
+        System.out.println("Метод substring()");
+
+        String str14 = new String("Добро пожаловать на ProgLang.su");
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str14.substring(5));
+
+        System.out.print("Возвращаемое значение: ");
+        System.out.println(str14.substring(5, 15));
+
+        System.out.println();
+
+        /**
+         * Метод contains() – это метод Java, позволяющий проверить, содержит
+         * ли String другую подстроку или нет. Возвращает логическое значение,
+         * поэтому его можно использовать непосредственно внутри операторов if.
+         *
+         */
+
+        System.out.println("Метод contains()");
+
+        String str_Sample = "This is a String contains Example";
+        //Check if String contains a sequence
+        System.out.println("Contains sequence 'ing': "
+                + str_Sample.contains("ing"));
+        System.out.println("Contains sequence 'Example': "
+                + str_Sample.contains("Example"));
+        //String contains method is case sensitive
+        System.out.println("Contains sequence 'example': "
+                + str_Sample.contains("example"));
+        System.out.println("Contains sequence 'is String': "
+                + str_Sample.contains("is String"));
+
+        System.out.println();
+
+        /**
+         * Метод valueOf() в Java имеет следующие варианты, которые зависят
+         * от передаваемых параметров. Этот метод возвращает строковое
+         * представление переданного аргумента.
+         * valueOf(boolean b) — возвращает строковое представление
+         * логического аргумента.
+         * valueOf(char c) — возвращает строковое представление char аргумента.
+         * valueOf(char[] data) — возвращает строковое представление массив
+         * char аргументов.
+         * valueOf(char[] data, int offset, int count) — возвращает строковое
+         * представление определенного подмассива массив char аргументов.
+         * valueOf(double d) — возвращает строковое представление double
+         * аргумента.
+         * valueOf(float f) — возвращает строковое представление float
+         * аргумента.
+         * valueOf(int i) — возвращает строковое представление int аргумента.
+         * valueOf(long l) — возвращает строковое представление long аргумента.
+         * valueOf(Object obj) — возвращает строковое представление объекта
+         * аргумента.
+         */
+
+        System.out.println("Метод valueOf");
+
+        double d1 = 102939939.939;
+        boolean b1 = true;
+        long l = 1232874;
+        char[] arr = { 'а', 'б', 'в', 'г', 'д', 'е', 'ё' };
+
+        System.out.println("Возвращаемое значение: " + String.valueOf(d1));
+        System.out.println("Возвращаемое значение: " + String.valueOf(b1));
+        System.out.println("Возвращаемое значение: " + String.valueOf(l));
+        System.out.println("Возвращаемое значение: " + String.valueOf(arr));
+
+        System.out.println();
     }
 }
