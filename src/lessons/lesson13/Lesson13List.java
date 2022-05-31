@@ -47,5 +47,20 @@ public class Lesson13List {
 
         System.out.println(strList.remove("c"));
         System.out.println(strList);
+
+        //цикл с Листом
+        List<String> str_List = new ArrayList<>();
+        strList.add("a");
+        strList.add("b");
+        //проходим по каждому элементу из списка Стрингов str_List
+        for (String letter : str_List) {
+            System.out.println(letter);
+        }
+
+        for (int i = 0; i < 1; i++) {
+            System.out.println();
+        }
+        //проверка на то, что список пришед не пустой
+        //Assert.assertFalse(str_List.isEmpty());
     }
 }
