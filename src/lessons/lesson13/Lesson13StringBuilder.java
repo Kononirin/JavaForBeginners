@@ -4,7 +4,8 @@ public class Lesson13StringBuilder {
 
     public static void main(String[] args) {
 
-        String line = "_________________________________________________________";
+        String line = "____________________________________________________" +
+                "_____";
         String ll = "|\t";
         String lr = "\t|";
 
@@ -22,9 +23,11 @@ public class Lesson13StringBuilder {
         end = System.nanoTime();
 
         System.out.println(line);
-        System.out.println(ll + "result\t\t" + lr + ll + "Concatenation" + lr + ll + "Time" + "\t" + lr);
+        System.out.println(ll + "result\t\t" + lr + ll + "Concatenation"
+                + lr + ll + "Time" + "\t" + lr);
         System.out.println(line);
-        System.out.println(ll + "resultPlus\t" + lr + ll + resultPlus + "\t" + lr + ll + (end - start) + lr);
+        System.out.println(ll + "resultPlus\t" + lr + ll + resultPlus
+                + "\t" + lr + ll + (end - start) + lr);
         System.out.println(line);
 
         String resultConcat = "";
