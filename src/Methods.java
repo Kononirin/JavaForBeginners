@@ -29,6 +29,7 @@ public class Methods {
          * substring()
          * contains()
          * valueOf()
+         * parseInt() - сделать
          */
 
 
